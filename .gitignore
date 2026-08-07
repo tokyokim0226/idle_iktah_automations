@@ -1,0 +1,31 @@
+# Local environments
+.venv/
+venv/
+env/
+**/.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local calibration/config
+**/config.json
+**/*.local.json
+**/.env
+**/.env.*
+
+# Runtime output
+**/logs/
+**/*.log
+**/screenshots/
+
+# OS/editor noise
+.DS_Store
+.idea/
+.vscode/

@@ -1,0 +1,13 @@
+[project]
+name = "idle-iktah-potion-automation"
+version = "0.1.0"
+description = "Coordinate-based Idle Iktah potion automation through iPhone Mirroring."
+requires-python = ">=3.11"
+dependencies = [
+    "pillow",
+    "pynput",
+    "pyautogui",
+]
+
+[tool.uv]
+package = false

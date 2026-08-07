@@ -1,0 +1,47 @@
+{
+  "coordinate_mode": "relative_to_reference_anchor",
+  "reference_anchor_screen": [
+    0,
+    0
+  ],
+  "coordinates": {
+    "play": [
+      0,
+      0
+    ],
+    "swap": [
+      0,
+      0
+    ],
+    "make_39": [
+      0,
+      0
+    ],
+    "make_1": [
+      0,
+      0
+    ],
+    "cheap_potion": [
+      0,
+      0
+    ],
+    "haste_tea": [
+      0,
+      0
+    ]
+  },
+  "timing": {
+    "startup_delay_seconds": 5.0,
+    "focus_settle_delay_seconds": 1.5,
+    "mouse_move_seconds": 0.15,
+    "pre_click_delay_seconds": 0.1,
+    "click_hold_seconds": 0.08,
+    "long_click_mouse_move_seconds": 0.15,
+    "long_click_pre_hold_delay_seconds": 0.25,
+    "long_press_seconds": 0.8,
+    "transition_delay_seconds": 0.5,
+    "cheap_potion_wait_seconds": 30.5,
+    "haste_tea_wait_seconds": 4.5,
+    "cycle_buffer_seconds": 1.0
+  }
+}

@@ -1,0 +1,28 @@
+# Local environment
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local calibration and runtime output
+config.json
+logs/
+*.log
+screenshots/
+templates/*.local.png
+
+# OS/editor noise
+.DS_Store
+.idea/
+.vscode/
+
+# Keep uv.lock tracked for reproducible installs.
