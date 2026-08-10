@@ -194,60 +194,59 @@ def main():
     logging.info("Idle Iktah Potion Automation")
     logging.info("Move mouse to the top-left corner for emergency stop.")
 
-    logging.info("Starting in %.1f seconds...", startup_delay)
-    sleep(startup_delay)
-
-    if not args.no_auto_focus:
-        try:
-            logging.info("Activating %s", args.focus_app)
-            frontmost = focus_app(args.focus_app)
-            if frontmost != args.focus_app:
-                logging.warning(
-                    "Expected %s to be frontmost, but frontmost app is %s",
-                    args.focus_app,
-                    frontmost,
-                )
-
-            focus_settle_delay = float(
-                config["timing"].get(
-                    "focus_settle_delay_seconds",
-                    config["timing"].get("initial_click_delay_seconds", 1.5),
-                )
-            )
-            if focus_settle_delay > 0:
-                logging.info(
-                    "Waiting %.1f seconds after activating %s",
-                    focus_settle_delay,
-                    args.focus_app,
-                )
-                sleep(focus_settle_delay)
-        except (OSError, subprocess.CalledProcessError) as error:
-            logging.warning("Could not activate %s: %s", args.focus_app, error)
-
-    if args.focus_only:
-        logging.info("Focus-only test complete")
-        return
-
-    if args.test_current_click:
-        test_current_click()
-        logging.info("Current-position click test complete")
-        return
-
-    if args.test_current_long_press:
-        duration = float(config["timing"]["long_press_seconds"])
-        test_current_long_click(duration)
-        logging.info("Current-position long-press test complete")
-        return
-
-    if args.test_long_press:
-        duration = float(config["timing"]["long_press_seconds"])
-        test_long_click(config, args.test_long_press, duration)
-        logging.info("Long-press test complete")
-        return
-
-    cycle = 0
-
     try:
+        logging.info("Starting in %.1f seconds...", startup_delay)
+        sleep(startup_delay)
+
+        if not args.no_auto_focus:
+            try:
+                logging.info("Activating %s", args.focus_app)
+                frontmost = focus_app(args.focus_app)
+                if frontmost != args.focus_app:
+                    logging.warning(
+                        "Expected %s to be frontmost, but frontmost app is %s",
+                        args.focus_app,
+                        frontmost,
+                    )
+
+                focus_settle_delay = float(
+                    config["timing"].get(
+                        "focus_settle_delay_seconds",
+                        config["timing"].get("initial_click_delay_seconds", 1.5),
+                    )
+                )
+                if focus_settle_delay > 0:
+                    logging.info(
+                        "Waiting %.1f seconds after activating %s",
+                        focus_settle_delay,
+                        args.focus_app,
+                    )
+                    sleep(focus_settle_delay)
+            except (OSError, subprocess.CalledProcessError) as error:
+                logging.warning("Could not activate %s: %s", args.focus_app, error)
+
+        if args.focus_only:
+            logging.info("Focus-only test complete")
+            return
+
+        if args.test_current_click:
+            test_current_click()
+            logging.info("Current-position click test complete")
+            return
+
+        if args.test_current_long_press:
+            duration = float(config["timing"]["long_press_seconds"])
+            test_current_long_click(duration)
+            logging.info("Current-position long-press test complete")
+            return
+
+        if args.test_long_press:
+            duration = float(config["timing"]["long_press_seconds"])
+            test_long_click(config, args.test_long_press, duration)
+            logging.info("Long-press test complete")
+            return
+
+        cycle = 0
         initialize_cheap_potion(config)
 
         while args.infinite or cycle < args.cycles:
